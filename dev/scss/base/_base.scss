@@ -1,0 +1,112 @@
+/* =============
+    Base
+============= */
+figure{
+    padding: 0;
+    margin: 0;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+    li{
+        list-style: none;
+    }
+}
+
+main{
+    display: grid;
+    grid-template-areas:
+        "header"
+        "creative"
+        "journal"
+        "footer";
+}
+
+header {
+    grid-area: header;
+
+    .heroimage {
+        display: grid;
+		grid-template-columns: repeat( 7, 1fr);
+		grid-template-rows: repeat( 5, 1fr);
+		justify-content: center;
+		text-align: center;
+        
+        .da {
+            grid-column: 2 / 7;
+            grid-row: 2 / 3;
+        }
+
+        .circle {
+            grid-column: 3 / 6;
+            grid-row: 4 / 5;
+        }
+
+        .circle {
+            width: 50px;
+            height: 50px;
+            margin: 10% auto;
+            border-radius: 50%;
+            position: relative;
+            border: 10px white;
+        }
+        .start {
+            position: absolute;
+            width: inherit;
+            top: 50%;
+            text-align: center;
+        }
+    }
+}
+
+.creative {
+    grid-area: creative;
+
+    h1 {
+        display: grid;
+        text-align: center;
+    }
+}
+
+.journal {
+    grid-area: journal;
+
+    ul li{
+        @include md {
+            display: grid;
+            grid-template-columns: repeat(6 ,1fr);
+            grid-gap: 10px;
+            justify-content: center;
+            grid-template-areas: 
+            "hanging hanging hanging letterpress letterpress letterpress"
+            " . . business business . . " ;
+
+            .hanging {
+                grid-area: hanging;
+            }
+            .letterpress {
+                grid-area: letterpress;
+            }
+            .business {
+                grid-area: business;
+            }
+        }
+    }
+}
+
+footer {
+    grid-area: footer;
+    
+    .social{
+        display: grid;
+        justify-content: center;
+        ul {
+            display: flex;
+        }
+        .dw {
+            display: flex;
+        }
+    }
+
+}
